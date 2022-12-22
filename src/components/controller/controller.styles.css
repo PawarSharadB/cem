@@ -1,0 +1,35 @@
+.container {
+  background-color: #eff5f5;
+  flex-direction: column;
+  padding: 16px;
+  display: flex;
+  flex: 1;
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.firstContainer {
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 8px;
+}
+
+.secondContainer {
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 8px;
+}
+
+.ub-mt_-7px {
+  margin-top: -7px !important;
+}
+
+.buttons-container {
+  text-align: center;
+}

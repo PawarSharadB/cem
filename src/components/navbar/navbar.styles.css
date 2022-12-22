@@ -1,0 +1,13 @@
+.nav-container {
+  height: 40px;
+  background-color: #36d576;
+  margin-bottom: 16px;
+}
+
+.title {
+  color: #ffffff;
+  margin-left: 20px;
+  justify-content: 'center';
+  padding-top: 16;
+  padding-bottom: 16;
+}

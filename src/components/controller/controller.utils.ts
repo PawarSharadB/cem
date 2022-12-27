@@ -1,30 +1,7 @@
+import { isEmpty } from '../../app/utils';
 import { locales } from '../../locales';
 
-export const formFieldData = [
-  {
-    label: locales.key,
-    required: true,
-    description: '',
-    placeholder: 'Please enter key value!',
-  },
-  {
-    label: locales.type,
-    required: true,
-    description: '',
-    placeholder: 'Please enter type!',
-  },
-  {
-    label: locales.sourcePath,
-    required: true,
-    description: '',
-    placeholder: 'Please Source Path!',
-  },
-  {
-    label: locales.destinationPath,
-    required: true,
-    description: '',
-    placeholder: 'Please enter Destination Path!',
-  },
+export const RDBMSTypeData = [
   {
     label: locales.databaseName,
     required: true,
@@ -42,6 +19,30 @@ export const formFieldData = [
     required: true,
     description: '',
     placeholder: 'Please enter Table Column Name!',
+  },
+];
+
+export const FILESTypeData = [
+  {
+    label: locales.sourcePath,
+    required: true,
+    description: '',
+    placeholder: 'Please Source Path!',
+  },
+];
+
+export const formFieldData = [
+  {
+    label: locales.key,
+    required: true,
+    description: '',
+    placeholder: 'Please enter key value!',
+  },
+  {
+    label: locales.bpc,
+    required: true,
+    description: '',
+    placeholder: 'Please enter BPC value!',
   },
   {
     label: locales.piiColumn,
@@ -67,12 +68,11 @@ export const formFieldData = [
     description: '',
     placeholder: 'Please enter Partition Key!',
   },
-  {
-    label: locales.bvc,
-    required: true,
-    description: '',
-    placeholder: 'Please enter BVC value!',
-  },
+];
+
+export const datasetTypeOptions = [
+  { label: locales.rdbms, value: 'rdbms' },
+  { label: locales.files, value: 'files' },
 ];
 
 export const formatData = {
@@ -108,9 +108,8 @@ export const loadTypeData = {
 
 export const fieldKeys: any = {
   Key: 'datasetKey',
-  Type: 'datasetType',
+  'Dataset Type': 'datasetType',
   'Source Path': 'srcPath',
-  'Destination Path': 'dstPath',
   'Database Name': 'databaseName',
   'Table Name': 'tableName',
   'Table Column': 'tableColumn',
@@ -118,19 +117,16 @@ export const fieldKeys: any = {
   'Watermark Column': 'watermarkColumn',
   'Primary Key': 'primaryKey',
   'Partition Key': 'partitionKey',
-  BVC: 'bvc',
+  BPC: 'bpc',
   Format: 'format',
   "Active Flag'": 'activeFlag',
   'Load Type': 'loadType',
 };
 
-const isEmpty = (str: string) => !str.trim().length;
-
 export const INITIAL_STATE = {
   datasetKey: '',
   datasetType: '',
   srcPath: '',
-  dstPath: '',
   databaseName: '',
   tableName: '',
   tableColumn: '',
@@ -138,14 +134,13 @@ export const INITIAL_STATE = {
   watermarkColumn: '',
   primaryKey: '',
   partitionKey: '',
-  bvc: '',
+  bpc: '',
 };
 
-export function checkIfAllValuesEntered(formData: {
+export function checkValuesForDBMSType(formData: {
   datasetKey: string;
   datasetType: string;
   srcPath: string;
-  dstPath: string;
   databaseName: string;
   tableName: string;
   tableColumn: string;
@@ -153,17 +148,64 @@ export function checkIfAllValuesEntered(formData: {
   watermarkColumn: string;
   primaryKey: string;
   partitionKey: string;
-  bvc: string;
+  bpc: string;
+}): boolean {
+  if (
+    isEmpty(formData.datasetKey) ||
+    isEmpty(formData.databaseName) ||
+    isEmpty(formData.tableName) ||
+    isEmpty(formData.tableColumn) ||
+    isEmpty(formData.bpc)
+  ) {
+    return true;
+  }
+  return false;
+}
+
+export function checkValuesForFilesType(formData: {
+  datasetKey: string;
+  datasetType: string;
+  srcPath: string;
+  databaseName: string;
+  tableName: string;
+  tableColumn: string;
+  piiColumn: string;
+  watermarkColumn: string;
+  primaryKey: string;
+  partitionKey: string;
+  bpc: string;
+}): boolean {
+  if (
+    isEmpty(formData.datasetKey) ||
+    isEmpty(formData.srcPath) ||
+    isEmpty(formData.bpc)
+  ) {
+    return true;
+  }
+  return false;
+}
+
+export function checkIfAllValuesEntered(formData: {
+  datasetKey: string;
+  datasetType: string;
+  srcPath: string;
+  databaseName: string;
+  tableName: string;
+  tableColumn: string;
+  piiColumn: string;
+  watermarkColumn: string;
+  primaryKey: string;
+  partitionKey: string;
+  bpc: string;
 }): boolean | undefined {
   if (
     isEmpty(formData.datasetKey) ||
     isEmpty(formData.datasetType) ||
     isEmpty(formData.srcPath) ||
-    isEmpty(formData.dstPath) ||
     isEmpty(formData.databaseName) ||
     isEmpty(formData.tableName) ||
     isEmpty(formData.tableColumn) ||
-    isEmpty(formData.bvc)
+    isEmpty(formData.bpc)
   ) {
     return true;
   }

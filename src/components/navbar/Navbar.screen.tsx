@@ -7,7 +7,7 @@ import './navbar.styles.css';
 const NavbarScreen = ({}) => {
   return (
     <div className='nav-container'>
-      <h1 className='title'>{locales.appTitle}</h1>
+      <h1 className='titleNavbar'>{locales.appTitle}</h1>
     </div>
   );
 };

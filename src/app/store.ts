@@ -4,13 +4,15 @@ import {
   Action,
   getDefaultMiddleware,
 } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
 import controllerReducer from '../components/controller/controllerSlice';
+import executionReducer from '../components/execution/executionSlice';
+import counterReducer from '../features/counter/counterSlice';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
     controller: controllerReducer,
+    execution: executionReducer,
+    counter: counterReducer,
   },
   middleware: getDefaultMiddleware({
     serializableCheck: false,

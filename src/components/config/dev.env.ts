@@ -4,4 +4,6 @@ export const Config = {
   COLLECTION: 'datasetController',
   DATABASE: 'udp-demo',
   DATA_SOURCE: 'udp',
+  CLUSTER_URL: 'https://adb-6965379324646308.8.azuredatabricks.net/api/2.0',
+  CLUSTER_TOKEN: 'dapi3e2e0fd00857f49bd8a9f3eba7cc1fa0-3',
 };

@@ -1,10 +1,10 @@
 export const locales = {
   // App Name
-  appTitle: 'CEM',
+  appTitle: 'Unified Analytics Data Platform',
   // Controller
   controllerTitle: 'Controller',
   key: 'Key',
-  type: 'Type',
+  datasetType: 'Dataset Type',
   sourcePath: 'Source Path',
   destinationPath: 'Destination Path',
   format: 'Format',
@@ -17,13 +17,24 @@ export const locales = {
   partitionKey: 'Partition Key',
   activeFlag: 'Active Flag',
   loadType: 'Load Type',
-  bvc: 'BVC',
+  bpc: 'BPC',
+  rdbms: 'RDBMS',
+  files: 'FILES',
   // Execution
   executionTitle: 'Execution',
+  jobName: 'Job Name :',
+  namePlaceholder: 'Please enter job name!',
+  clusterType: 'Cluster Type :',
+  existingCluster: 'Existing',
+  newCluster: 'New',
+  existingClusterId: 'Existing Cluster Id',
+  clusterIdPlaceholder: 'Please enter cluster Id!',
+  notebookTask: 'Notebook Task :',
   // Monitor
   monitorTitle: 'Monitor',
 
   // Buttons
   save: 'Save',
   reset: 'Reset',
+  createJob: 'Create Job',
 };
